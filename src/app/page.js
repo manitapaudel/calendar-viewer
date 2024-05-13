@@ -3,7 +3,7 @@ import EventCard from "./components/event-card";
 const event = {
   title: "Yoga Class",
   description: "A yoga session with my buddies",
-  imgSrc: "/images/event.jpg",
+  imgSrc: "/images/pattern-i.jpg",
   createdAt: "4 hours ago",
   tags: ["important"],
   user: {
