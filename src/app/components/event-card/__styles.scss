@@ -27,4 +27,20 @@
   }
   .description {
   }
+
+  .user-info {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+
+    .name {
+      margin: 0;
+      font-weight: bold;
+    }
+    .created-at {
+      margin-top: 5px;
+      color: #545d7a;
+      font-size: 14px;
+    }
+  }
 }

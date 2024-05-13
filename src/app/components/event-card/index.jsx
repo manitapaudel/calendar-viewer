@@ -1,6 +1,7 @@
 import Image from "next/image";
-import "./__styles.scss";
+
 import Avatar from "../avatar";
+import "./__styles.scss";
 
 const EventCard = ({ event }) => {
   return (
@@ -11,7 +12,13 @@ const EventCard = ({ event }) => {
       <div className="event-details">
         <p className="title">{event.title}</p>
         <p className="description">{event.description}</p>
-        <Avatar />
+        <div className="user-info">
+          <Avatar />
+          <div className="name-creation">
+            <p className="name">{event.user.name}</p>
+            <p className="created-at">{event.createdAt}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
