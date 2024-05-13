@@ -1,3 +1,5 @@
+import NextIcon from "../icons/next-icon";
+import PreviousIcon from "../icons/previous-icon";
 import "./__styles.scss";
 
 const Calendar = () => {
@@ -6,8 +8,12 @@ const Calendar = () => {
       <div className="header">
         <p className="month">July 2024</p>
         <div className="buttons">
-          <button className="prev">Prev</button>
-          <button className="next">Next</button>
+          <button className="prev">
+            <PreviousIcon className="icon" />
+          </button>
+          <button className="next">
+            <NextIcon className="icon" />
+          </button>
         </div>
       </div>
       <div className="week-days"></div>
