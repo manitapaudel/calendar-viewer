@@ -9,17 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "css-loader": "^7.1.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "style-loader": "^4.0.0"
+    "sass": "^1.77.1"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "less": "^4.2.0",
-    "less-loader": "^12.2.0",
     "postcss": "^8"
   }
 }

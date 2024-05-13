@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./index.less";
+import "./__styles.scss";
 
 const EventCard = ({ event }) => {
   return (
