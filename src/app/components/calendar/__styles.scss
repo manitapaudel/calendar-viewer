@@ -1,0 +1,27 @@
+.calendar-container {
+  width: 30%;
+  margin: auto;
+  border: 2px solid #141414;
+  border-radius: 6px;
+  padding: 20px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .month {
+      font-weight: bold;
+    }
+
+    .buttons {
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .prev {
+        margin-right: 6px;
+      }
+    }
+  }
+}

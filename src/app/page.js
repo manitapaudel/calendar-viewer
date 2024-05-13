@@ -1,3 +1,4 @@
+import Calendar from "./components/calendar";
 import EventCard from "./components/event-card";
 
 const event = {
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <div>
       <EventCard event={event} />
+      <Calendar />
     </div>
   );
 }
