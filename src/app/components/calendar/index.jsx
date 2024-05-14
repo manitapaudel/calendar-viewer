@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import NextIcon from "../icons/next-icon";
 import PreviousIcon from "../icons/previous-icon";
@@ -23,11 +23,22 @@ const monthNames = [
 
 const Calendar = () => {
   const date = new Date();
-  console.log("Hi date", date.getMonth());
-  // const currentMonth = date.getMonth();
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
-  console.log(currentYear);
+
+  function getDaysInMonth(year, month) {
+    // month is 0-indexed: 0 for January, 1 for February, etc.
+    return new Date(year, month + 1, 0).getDate();
+  }
+
+  const [daysInaMonth, setDaysInaMonth] = useState(
+    getDaysInMonth(currentYear, currentMonth)
+  );
+
+  // To update the number of days, whenever the month or/and the year changes
+  useEffect(() => {
+    setDaysInaMonth(getDaysInMonth(currentYear, currentMonth));
+  }, [currentYear, currentMonth]);
 
   const handlePrevMonth = () => {
     if (currentMonth > 0) {
