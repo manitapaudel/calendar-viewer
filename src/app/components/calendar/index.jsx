@@ -29,17 +29,14 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const firstDayOfTheMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-  console.log("Hiya!", firstDayOfTheMonth);
-
   function getDaysInMonth(year, month) {
     // month is 0-indexed: 0 for January, 1 for February, etc.
     return new Date(year, month + 1, 0).getDate();
   }
-
+  //  To list down the days in numbers in the calendar
   const [daysInaMonth, setDaysInaMonth] = useState(
     getDaysInMonth(currentYear, currentMonth)
   );
-  console.log("testinggg", new Array(daysInaMonth));
 
   // To update the number of days, whenever the month or/and the year changes
   useEffect(() => {
@@ -63,7 +60,10 @@ const Calendar = () => {
     }
   };
 
-  // const daysArray =
+  // Let's create an array, so that the first day of the month starts from the correct day of the week
+  const daysArray = Array(firstDayOfTheMonth)
+    .fill("")
+    .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
   return (
     <div className="calendar-container">
       <div className="header">
@@ -87,14 +87,11 @@ const Calendar = () => {
         ))}
       </div>
       <div className="days">
-        {Array(firstDayOfTheMonth)
-          .fill("")
-          .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1))
-          .map((day, index) => (
-            <span className="day" key={index}>
-              {day}
-            </span>
-          ))}
+        {daysArray.map((day, index) => (
+          <span className="day" key={index}>
+            {day}
+          </span>
+        ))}
       </div>
     </div>
   );
