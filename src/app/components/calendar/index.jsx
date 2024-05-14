@@ -21,6 +21,8 @@ const monthNames = [
   "December",
 ];
 
+const daysNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
 const Calendar = () => {
   const date = new Date();
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
@@ -72,7 +74,13 @@ const Calendar = () => {
           </button>
         </div>
       </div>
-      <div className="week-days"></div>
+      <div className="week-days">
+        {daysNames.map((day) => (
+          <span className="week-name" key={day}>
+            {day}
+          </span>
+        ))}
+      </div>
       <div className="days"></div>
     </div>
   );
