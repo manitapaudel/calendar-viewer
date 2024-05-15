@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import NextIcon from "../icons/next-icon";
 import PreviousIcon from "../icons/previous-icon";
 import "./__styles.scss";
+import Day from "../day";
 
 const monthNames = [
   "January",
@@ -94,12 +95,7 @@ const Calendar = () => {
       </div>
       <div className="days">
         {daysArray.map((day, index) => (
-          <span
-            className={`day ${today && today === day ? "today" : ""}`}
-            key={index}
-          >
-            <span className="text">{day}</span>
-          </span>
+          <Day today={today} day={day} key={day} />
         ))}
       </div>
     </div>
