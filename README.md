@@ -1,11 +1,19 @@
 # :spiral_calendar: Calendar Viewer
 
 ## Introduction 
-A Calendar component where you can log your events.
+Looks like a calendar, is a calendar, but it is not just a regular calendar. Hope I was calendar, *ahem* sorry, hope I was **clear**.
+
+In this calendar, you can:
+-  view the current month and year, along with the days of the week
+-  navigate to the previous and next months by clicking on buttons or arrows
+-  see the current day of the month highlighted
 
 ## Resources
 
-### Libraries
+### Tools
+
+- Next.js
+- SASS 💅
 
 ### Websites
 
