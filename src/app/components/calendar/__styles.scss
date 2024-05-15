@@ -1,5 +1,6 @@
 .calendar-container {
-  width: 30%;
+  width: fit-content;
+  height: auto;
   margin: auto;
   border: 2px solid #141414;
   border-radius: 6px;
@@ -31,9 +32,10 @@
   }
   .week-days {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 60px);
     text-align: center;
     margin-top: 2rem;
+
     .week-name {
       font-size: 18px;
       font-weight: 700;
@@ -42,10 +44,18 @@
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 60px);
+    grid-template-rows: repeat(5, 60px);
     text-align: center;
     row-gap: 1rem;
     margin-top: 1.5rem;
     color: #171d35;
+    .day {
+      align-content: center;
+    }
+    .today {
+      background-color: #ffdf00;
+      border-radius: 50%;
+    }
   }
 }

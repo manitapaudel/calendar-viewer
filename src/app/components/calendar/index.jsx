@@ -28,6 +28,12 @@ const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const firstDayOfTheMonth = new Date(currentYear, currentMonth, 1).getDay();
+  console.log(currentYear, currentMonth, date.getDate());
+
+  const today =
+    currentYear === date.getFullYear() && currentMonth === date.getMonth()
+      ? date.getDate()
+      : null;
 
   function getDaysInMonth(year, month) {
     // month is 0-indexed: 0 for January, 1 for February, etc.
@@ -88,7 +94,10 @@ const Calendar = () => {
       </div>
       <div className="days">
         {daysArray.map((day, index) => (
-          <span className="day" key={index}>
+          <span
+            className={`day ${today && today === day ? "today" : ""}`}
+            key={index}
+          >
             {day}
           </span>
         ))}
