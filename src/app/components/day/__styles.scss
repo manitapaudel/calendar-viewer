@@ -1,0 +1,15 @@
+.day {
+  align-content: center;
+  border: 1px solid #ffdf00;
+  cursor: pointer;
+  .text {
+    padding: 20px;
+  }
+}
+
+.today {
+  .text {
+    background-color: #ffdf00;
+    border-radius: 50%;
+  }
+}
