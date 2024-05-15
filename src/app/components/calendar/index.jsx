@@ -95,7 +95,7 @@ const Calendar = () => {
       </div>
       <div className="days">
         {daysArray.map((day, index) => (
-          <Day today={today} day={day} key={day} />
+          <Day today={today} day={day} key={index} />
         ))}
       </div>
     </div>
