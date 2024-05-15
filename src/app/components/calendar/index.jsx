@@ -98,7 +98,7 @@ const Calendar = () => {
             className={`day ${today && today === day ? "today" : ""}`}
             key={index}
           >
-            {day}
+            <span className="text">{day}</span>
           </span>
         ))}
       </div>

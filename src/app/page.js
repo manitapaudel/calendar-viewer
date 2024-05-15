@@ -16,7 +16,7 @@ const event = {
 export default function Home() {
   return (
     <div>
-      <EventCard event={event} />
+      {/* <EventCard event={event} /> */}
       <Calendar />
     </div>
   );
