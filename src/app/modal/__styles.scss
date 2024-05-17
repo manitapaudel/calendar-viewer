@@ -32,10 +32,13 @@
     }
     .close-modal {
       cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
       .close-icon {
-        position: absolute;
-        right: 20px;
-        top: 20px;
         height: 30px;
         width: 30px;
         color: #000000;
