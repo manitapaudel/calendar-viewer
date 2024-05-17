@@ -18,7 +18,7 @@ const Modal = ({ setShowModal }) => {
           <input placeholder="" className="event-input" />
           <input placeholder="" className="event-input" />
           <input placeholder="" className="event-input" />
-          <button className="submit">Add event</button>
+          <button className="submit-btn">Add event</button>
         </form>
         <button className="close-modal" onClick={() => setShowModal(false)}>
           <CloseIcon className="close-icon" />

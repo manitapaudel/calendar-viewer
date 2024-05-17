@@ -20,15 +20,24 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
 
-    .event-input {
-      width: 60%;
-      height: 60px;
-      border-radius: 6px;
-      margin: auto;
-      font-size: 16px;
-      padding: 0 20px;
+      .event-input {
+        width: 60%;
+        height: 60px;
+        border-radius: 6px;
+        margin: auto;
+        font-size: 16px;
+        padding: 0 20px;
+      }
+      .submit-btn {
+        background-color: #ffdf00;
+        border: none;
+        border-radius: 6px;
+        width: 65%;
+        margin: 40px auto;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
     }
     .close-modal {
       cursor: pointer;
