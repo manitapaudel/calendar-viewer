@@ -2,26 +2,11 @@
 
 import { useEffect, useState } from "react";
 
+import { daysNames, monthNames } from "@/app/utils/constants";
+import Day from "../day";
 import NextIcon from "../icons/next-icon";
 import PreviousIcon from "../icons/previous-icon";
 import "./__styles.scss";
-
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-const daysNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const Calendar = () => {
   const date = new Date();
@@ -94,12 +79,13 @@ const Calendar = () => {
       </div>
       <div className="days">
         {daysArray.map((day, index) => (
-          <span
-            className={`day ${today && today === day ? "today" : ""}`}
+          <Day
+            today={today}
+            day={day}
+            currentMonth={currentMonth}
+            currentYear={currentYear}
             key={index}
-          >
-            {day}
-          </span>
+          />
         ))}
       </div>
     </div>

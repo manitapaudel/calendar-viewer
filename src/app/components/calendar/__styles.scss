@@ -32,7 +32,7 @@
   }
   .week-days {
     display: grid;
-    grid-template-columns: repeat(7, 60px);
+    grid-template-columns: repeat(7, 200px);
     text-align: center;
     margin-top: 2rem;
 
@@ -44,18 +44,12 @@
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 60px);
-    grid-template-rows: repeat(5, 60px);
+    grid-template-columns: repeat(7, 200px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 5px;
     text-align: center;
     row-gap: 1rem;
     margin-top: 1.5rem;
     color: #171d35;
-    .day {
-      align-content: center;
-    }
-    .today {
-      background-color: #ffdf00;
-      border-radius: 50%;
-    }
   }
 }
