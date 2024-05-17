@@ -18,22 +18,34 @@
 
     .event-form {
       display: flex;
+      width: 60%;
       flex-direction: column;
       gap: 20px;
+      margin: auto;
       margin-top: 50px;
 
       .event-input {
-        width: 60%;
-        height: 60px;
-        border-radius: 6px;
-        margin: auto;
-        font-size: 16px;
-        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        input {
+          width: 100%;
+          height: 60px;
+          border-radius: 6px;
+          font-size: 16px;
+          padding: 0 20px;
+        }
+        .error-message {
+          font-size: 14px;
+          color: red;
+          margin-top: 5px;
+        }
       }
       .event-input::placeholder {
         color: #171d35;
         opacity: 0.6;
       }
+
       .submit-btn {
         background-color: #ffdf00;
         border: none;
