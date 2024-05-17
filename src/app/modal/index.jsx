@@ -37,26 +37,29 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
         </p>
         <form className="event-form">
           <input
-            placeholder="Give your event a name"
+            placeholder="Give your event a name*"
             type="text"
             className="event-input"
             name="name"
             value={event.name}
             onChange={handleChange}
+            required
           />
           <input
-            placeholder="Describe the event in a few words"
+            placeholder="Describe the event in a few words*"
             className="event-input"
             name="description"
             value={event.description}
             onChange={handleChange}
+            required
           />
           <input
-            placeholder="Highlight the importance of the event"
+            placeholder="Highlight the importance of the event*"
             className="event-input"
             name="tag"
             value={event.tag}
             onChange={handleChange}
+            required
           />
           <button className="submit-btn" onClick={handleSubmit}>
             Add event
