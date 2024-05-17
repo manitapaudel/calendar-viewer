@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./__styles.scss";
 import Modal from "@/app/modal";
 
-const Day = ({ today, day }) => {
+const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
@@ -22,7 +22,16 @@ const Day = ({ today, day }) => {
       >
         <span className="text">{day}</span>
       </span>
-      {showModal ? <Modal setShowModal={setShowModal} /> : ""}
+      {showModal ? (
+        <Modal
+          setShowModal={setShowModal}
+          day={day}
+          currentMonth={currentMonth}
+          currentYear={currentYear}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 };
