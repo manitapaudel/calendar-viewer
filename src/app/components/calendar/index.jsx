@@ -3,28 +3,15 @@
 import { useEffect, useState } from "react";
 
 import { daysNames, monthNames } from "@/app/utils/constants";
-import Day from "../day";
-import NextIcon from "../icons/next-icon";
-import PreviousIcon from "../icons/previous-icon";
+import { getCalendarFormatDays, getDaysInMonth, getToday } from "@/app/utils";
+import { NextIcon, PreviousIcon } from "@/app/components/icons";
+import Day from "@/app/components/day";
 import "./__styles.scss";
 
 const Calendar = () => {
   const date = new Date();
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
-  const firstDayOfTheMonth = new Date(currentYear, currentMonth, 1).getDay();
-  console.log(currentYear, currentMonth, date.getDate());
-
-  const today =
-    currentYear === date.getFullYear() && currentMonth === date.getMonth()
-      ? date.getDate()
-      : null;
-
-  function getDaysInMonth(year, month) {
-    // month is 0-indexed: 0 for January, 1 for February, etc.
-    return new Date(year, month + 1, 0).getDate();
-  }
-  //  To list down the days in numbers in the calendar
   const [daysInaMonth, setDaysInaMonth] = useState(
     getDaysInMonth(currentYear, currentMonth)
   );
@@ -33,6 +20,13 @@ const Calendar = () => {
   useEffect(() => {
     setDaysInaMonth(getDaysInMonth(currentYear, currentMonth));
   }, [currentYear, currentMonth]);
+
+  const today = getToday(date, currentYear, currentMonth);
+  const firstDayOfTheMonth = new Date(currentYear, currentMonth, 1).getDay();
+  const calendarFormatDays = getCalendarFormatDays(
+    firstDayOfTheMonth,
+    daysInaMonth
+  );
 
   const handlePrevMonth = () => {
     if (currentMonth > 0) {
@@ -51,10 +45,6 @@ const Calendar = () => {
     }
   };
 
-  // Let's create an array, so that the first day of the month starts from the correct day of the week
-  const daysArray = Array(firstDayOfTheMonth)
-    .fill("")
-    .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
   return (
     <div className="calendar-container">
       <div className="header">
@@ -78,7 +68,7 @@ const Calendar = () => {
         ))}
       </div>
       <div className="days">
-        {daysArray.map((day, index) => (
+        {calendarFormatDays.map((day, index) => (
           <Day
             today={today}
             day={day}
