@@ -31,6 +31,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
         style={{
           backgroundColor:
             day && eventOfTheDay !== undefined ? randomColor : "",
+          color: day && eventOfTheDay !== undefined ? "white" : "",
         }}
         onClick={handleShowModal}
       >
