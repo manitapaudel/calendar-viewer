@@ -1,7 +1,7 @@
 import { useState } from "react";
 
+import { getReadableDate } from "@/app/utils";
 import CloseIcon from "../components/icons/close-icon";
-import { getReadableDate } from "../utils/getReadableDate";
 import "./__styles.scss";
 
 const initialState = {
