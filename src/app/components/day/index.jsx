@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import "./__styles.scss";
 import Modal from "@/app/modal";
+import "./__styles.scss";
 
 const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModal, setShowModal] = useState(false);

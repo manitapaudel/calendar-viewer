@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Avatar from "../avatar";
+import Avatar from "@/app/components/avatar";
 import "./__styles.scss";
 
 const EventCard = ({ event }) => {

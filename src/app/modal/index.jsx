@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { formInputs, initialState } from "@/app/utils/constants";
 import { getReadableDate } from "@/app/utils";
-import CloseIcon from "../components/icons/close-icon";
+import CloseIcon from "@/app/components/icons/close-icon";
 import "./__styles.scss";
 
 const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
