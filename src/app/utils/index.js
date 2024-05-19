@@ -30,3 +30,12 @@ export const getCalendarFormatDays = (firstDayOfTheMonth, daysInaMonth) => {
     .fill("")
     .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
 };
+
+export const getLocalStorage = (key, initialValue) => {
+  const value = JSON.parse(localStorage.getItem(key)) || initialValue;
+  return value;
+};
+
+export const setLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
