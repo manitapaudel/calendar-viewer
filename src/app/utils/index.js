@@ -39,3 +39,10 @@ export const getLocalStorage = (key, initialValue) => {
 export const setLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
+
+export const getRandomColor = () => {
+  const r = Math.floor(Math.random() * 256); // Red value between 0 and 255
+  const g = Math.floor(Math.random() * 256); // Green value between 0 and 255
+  const b = Math.floor(Math.random() * 256); // Blue value between 0 and 255
+  return `rgb(${r}, ${g}, ${b})`;
+};
