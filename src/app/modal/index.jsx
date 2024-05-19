@@ -1,14 +1,9 @@
 import { useState } from "react";
 
+import { formInputs, initialState } from "@/app/utils/constants";
 import { getReadableDate } from "@/app/utils";
 import CloseIcon from "../components/icons/close-icon";
 import "./__styles.scss";
-
-const initialState = {
-  name: "",
-  description: "",
-  tag: "",
-};
 
 const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
   const [event, setEvent] = useState(initialState);
@@ -47,41 +42,21 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
           Add an event that you would like to remember.
         </p>
         <form className="event-form">
-          <span className="event-input">
-            <input
-              placeholder="Give your event a name*"
-              type="text"
-              name="name"
-              value={event.name}
-              onChange={handleChange}
-              required
-            />
-            {errors.name && (
-              <span className="error-message">{errors.name}</span>
-            )}
-          </span>
-          <span className="event-input">
-            <input
-              placeholder="Describe the event in a few words*"
-              name="description"
-              value={event.description}
-              onChange={handleChange}
-              required
-            />
-            {errors.description && (
-              <span className="error-message">{errors.description}</span>
-            )}
-          </span>
-          <span className="event-input">
-            <input
-              placeholder="Highlight the importance of the event*"
-              name="tag"
-              value={event.tag}
-              onChange={handleChange}
-              required
-            />
-            {errors.tag && <span className="error-message">{errors.tag}</span>}
-          </span>
+          {formInputs.map(({ name, placeholder, type, required }) => (
+            <span className="event-input" key={name}>
+              <input
+                placeholder={placeholder}
+                type={type}
+                name={name}
+                value={event[name]}
+                onChange={handleChange}
+                required={required}
+              />
+              {errors[name] && (
+                <span className="error-message">{errors[name]}</span>
+              )}
+            </span>
+          ))}
           <button className="submit-btn" onClick={handleSubmit}>
             Add event
           </button>
