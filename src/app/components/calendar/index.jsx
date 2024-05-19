@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 
 import { daysNames, monthNames } from "@/app/utils/constants";
 import { getCalendarFormatDays, getDaysInMonth, getToday } from "@/app/utils";
+import { NextIcon, PreviousIcon } from "@/app/components/icons";
 import Day from "@/app/components/day";
-import NextIcon from "@/app/components/icons/next-icon";
-import PreviousIcon from "../icons/previous-icon";
 import "./__styles.scss";
 
 const Calendar = () => {
