@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 import Modal from "@/app/modal";
 import { getLocalStorage, getReadableDate } from "@/app/utils";
-import "./styles.scss";
+import EventDrawer from "@/app/components/event-drawer";
 import EventCard from "../event-card";
+import "./styles.scss";
 
 const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModalOrEvent, setShowModalOrEvent] = useState(false);
@@ -44,7 +45,10 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
       </span>
       {showModalOrEvent &&
         (eventOfTheDay !== undefined ? (
-          <EventCard event={eventOfTheDay} />
+          <EventDrawer
+            event={eventOfTheDay}
+            setShowDrawer={setShowModalOrEvent}
+          />
         ) : (
           <Modal
             setShowModal={setShowModalOrEvent}
