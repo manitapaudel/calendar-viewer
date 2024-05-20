@@ -22,7 +22,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
         ? { backgroundColor: eventOfTheDay.eventColor, color: "white" }
         : {}
     );
-  }, [day, eventOfTheDay]);
+  }, [day]);
 
   const handleShowModal = () => {
     if (day !== "") {
