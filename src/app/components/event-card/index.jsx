@@ -10,7 +10,7 @@ const EventCard = ({ event }) => {
         <Image src="/images/pattern-i.jpg" alt="A marble pattern" fill />
       </div>
       <div className="event-details">
-        <p className="title">{event.title}</p>
+        <p className="title">{event.name}</p>
         <p className="description">{event.description}</p>
         <div className="user-info">
           <Avatar />

@@ -1,33 +1,29 @@
 .event-container {
-  position: absolute;
   display: flex;
-  flex-direction: column;
-  width: 332px;
-  min-height: 400px;
+  width: 100%;
+  min-height: 200px;
   border: 1px solid #141414;
   border-radius: 8px;
   background-color: #ffffff;
 
   .image-container {
     position: relative;
-    width: 100%;
+    width: 30%;
     min-height: 200px;
 
     img {
       border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-bottom-left-radius: 8px;
     }
   }
 
   .event-details {
+    text-align: left;
     padding: 20px;
     .title {
       font-size: 18px;
       font-weight: 700;
-      font-family: "Times New Roman", Times, serif;
     }
-  }
-  .description {
   }
 
   .user-info {
