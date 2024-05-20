@@ -32,12 +32,16 @@ export const getCalendarFormatDays = (firstDayOfTheMonth, daysInaMonth) => {
 };
 
 export const getLocalStorage = (key, initialValue) => {
-  const value = JSON.parse(localStorage.getItem(key)) || initialValue;
-  return value;
+  if (typeof window !== "undefined") {
+    const value = JSON.parse(localStorage.getItem(key)) || initialValue;
+    return value;
+  }
 };
 
 export const setLocalStorage = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 };
 
 export const getRandomColor = () => {
