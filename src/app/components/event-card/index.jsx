@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Avatar from "@/app/components/avatar";
 import { EditIcon, DeleteIcon } from "@/app/components/icons";
+import { deleteEvent } from "@/app/utils";
 import "./styles.scss";
 
 const EventCard = ({ event }) => {
@@ -20,10 +21,14 @@ const EventCard = ({ event }) => {
             <p className="created-at">{event.createdDate}</p>
           </div>
           <div className="actions">
-            <button className="edit-btn">
+            <button className="edit-btn" title="Edit event">
               <EditIcon className="edit-icon" />
             </button>
-            <button className="delete-btn">
+            <button
+              className="delete-btn"
+              onClick={() => deleteEvent(event.createdDate)}
+              title="Delete event"
+            >
               <DeleteIcon className="delete-icon" />
             </button>
           </div>
