@@ -1,4 +1,4 @@
-@use "../utils/commons";
+@use "../../utils/commons";
 
 .modal-overlay {
   @include commons.overlay();

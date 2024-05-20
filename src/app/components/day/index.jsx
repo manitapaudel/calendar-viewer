@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import Modal from "@/app/modal";
 import { getLocalStorage, getReadableDate } from "@/app/utils";
+import Modal from "@/app/components/modal";
 import EventDrawer from "@/app/components/event-drawer";
 import EventCard from "../event-card";
 import "./styles.scss";
