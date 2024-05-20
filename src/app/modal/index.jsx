@@ -1,7 +1,12 @@
 import { useState } from "react";
 
 import { formInputs, initialState } from "@/app/utils/constants";
-import { getReadableDate } from "@/app/utils";
+import {
+  getLocalStorage,
+  getRandomColor,
+  getReadableDate,
+  setLocalStorage,
+} from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
 import "./__styles.scss";
 
@@ -9,7 +14,9 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
   const [event, setEvent] = useState(initialState);
   const [errors, setErrors] = useState(initialState);
   const readableDate = getReadableDate(day, currentMonth, currentYear);
+  const events = getLocalStorage("events", []);
 
+  console.log(events);
   const handleChange = (e) => {
     setEvent({
       ...event,
@@ -26,6 +33,11 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
     else if (event.tag === "")
       setErrors({ ...errors, tag: "Please enter a tag*" });
     else {
+      const randomColor = getRandomColor();
+      setLocalStorage("events", [
+        ...events,
+        { ...event, createdDate: readableDate, eventColor: randomColor },
+      ]);
       console.log({
         ...event,
         createdDate: readableDate,

@@ -30,3 +30,23 @@ export const getCalendarFormatDays = (firstDayOfTheMonth, daysInaMonth) => {
     .fill("")
     .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
 };
+
+export const getLocalStorage = (key, initialValue) => {
+  if (typeof window !== "undefined") {
+    const value = JSON.parse(localStorage.getItem(key)) || initialValue;
+    return value;
+  } else return initialValue;
+};
+
+export const setLocalStorage = (key, value) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+};
+
+export const getRandomColor = () => {
+  const r = Math.floor(Math.random() * 256); // Red value between 0 and 255
+  const g = Math.floor(Math.random() * 256); // Green value between 0 and 255
+  const b = Math.floor(Math.random() * 256); // Blue value between 0 and 255
+  return `rgb(${r}, ${g}, ${b})`;
+};
