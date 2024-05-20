@@ -10,7 +10,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   const readableDate = getReadableDate(day, currentMonth, currentYear);
   const events = getLocalStorage("events", []);
 
-  const eventOfTheDay = events.find(
+  const eventOfTheDay = events?.find(
     (event) => event.createdDate === readableDate
   );
 
