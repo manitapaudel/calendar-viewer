@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 import Modal from "@/app/modal";
 import { getLocalStorage, getReadableDate } from "@/app/utils";
-import "./__styles.scss";
+import "./styles.scss";
+import EventCard from "../event-card";
 
 const Day = ({ today, day, currentMonth, currentYear }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModalOrEvent, setShowModalOrEvent] = useState(false);
   const [eventStyle, setEventStyle] = useState(null);
 
   const readableDate = getReadableDate(day, currentMonth, currentYear);
@@ -26,7 +27,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
 
   const handleShowModal = () => {
     if (day !== "") {
-      setShowModal(true);
+      setShowModalOrEvent(true);
     }
   };
 
@@ -41,16 +42,17 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
       >
         <span className="text">{day}</span>
       </span>
-      {showModal ? (
-        <Modal
-          setShowModal={setShowModal}
-          day={day}
-          currentMonth={currentMonth}
-          currentYear={currentYear}
-        />
-      ) : (
-        ""
-      )}
+      {showModalOrEvent &&
+        (eventOfTheDay !== undefined ? (
+          <EventCard event={eventOfTheDay} />
+        ) : (
+          <Modal
+            setShowModal={setShowModalOrEvent}
+            day={day}
+            currentMonth={currentMonth}
+            currentYear={currentYear}
+          />
+        ))}
     </>
   );
 };

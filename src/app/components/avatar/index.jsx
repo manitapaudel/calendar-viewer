@@ -1,4 +1,4 @@
-import "./__styles.scss";
+import "./styles.scss";
 
 const Avatar = ({ initial = "M" }) => {
   return <div className="avatar">{initial}</div>;

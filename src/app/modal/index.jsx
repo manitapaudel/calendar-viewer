@@ -8,7 +8,7 @@ import {
   setLocalStorage,
 } from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
-import "./__styles.scss";
+import "./styles.scss";
 
 const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
   const [event, setEvent] = useState(initialState);

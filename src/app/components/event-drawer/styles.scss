@@ -1,0 +1,5 @@
+@use "../utils/commons";
+
+.drawer-overlay {
+  @include commons.overlay();
+}

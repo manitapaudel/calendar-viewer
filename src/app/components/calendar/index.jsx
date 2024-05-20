@@ -6,7 +6,7 @@ import { daysNames, monthNames } from "@/app/utils/constants";
 import { getCalendarFormatDays, getDaysInMonth, getToday } from "@/app/utils";
 import { NextIcon, PreviousIcon } from "@/app/components/icons";
 import Day from "@/app/components/day";
-import "./__styles.scss";
+import "./styles.scss";
 
 const Calendar = () => {
   const date = new Date();
