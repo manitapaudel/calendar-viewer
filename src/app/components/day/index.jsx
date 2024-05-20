@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import Modal from "@/app/modal";
+import { getLocalStorage, getReadableDate } from "@/app/utils";
 import "./__styles.scss";
-import { getLocalStorage, getRandomColor, getReadableDate } from "@/app/utils";
 
 const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModal, setShowModal] = useState(false);
@@ -13,8 +13,6 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   const eventOfTheDay = events.find(
     (event) => event.createdDate === readableDate
   );
-
-  const randomColor = getRandomColor();
 
   const handleShowModal = () => {
     if (day !== "") {
@@ -30,7 +28,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
         }`}
         style={{
           backgroundColor:
-            day && eventOfTheDay !== undefined ? randomColor : "",
+            day && eventOfTheDay !== undefined ? eventOfTheDay.eventColor : "",
           color: day && eventOfTheDay !== undefined ? "white" : "",
         }}
         onClick={handleShowModal}
