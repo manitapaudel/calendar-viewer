@@ -35,7 +35,7 @@ export const getLocalStorage = (key, initialValue) => {
   if (typeof window !== "undefined") {
     const value = JSON.parse(localStorage.getItem(key)) || initialValue;
     return value;
-  }
+  } else return initialValue;
 };
 
 export const setLocalStorage = (key, value) => {
