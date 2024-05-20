@@ -1,3 +1,5 @@
+@use "../../utils/commons";
+
 .calendar-container {
   width: fit-content;
   height: auto;
@@ -16,9 +18,7 @@
 
     .buttons {
       button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
+        @include commons.buttonBasics();
       }
 
       .prev {

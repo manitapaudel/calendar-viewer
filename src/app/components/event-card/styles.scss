@@ -1,3 +1,5 @@
+@use "../../utils/commons";
+
 .event-container {
   display: flex;
   width: 100%;
@@ -27,6 +29,7 @@
   }
 
   .user-info {
+    position: relative;
     display: flex;
     gap: 10px;
     margin-top: 25px;
@@ -39,6 +42,31 @@
       margin-top: 5px;
       color: #545d7a;
       font-size: 14px;
+    }
+
+    .actions {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      .delete-btn {
+        @include commons.buttonBasics();
+        margin-left: 10px;
+        .delete-icon {
+          width: 30px;
+          height: 30px;
+          color: red;
+        }
+      }
+
+      .edit-btn {
+        @include commons.buttonBasics();
+        .edit-icon {
+          width: 30px;
+          height: 30px;
+          color: green;
+        }
+      }
     }
   }
 }
