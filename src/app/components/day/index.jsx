@@ -19,7 +19,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     // Set the style after the component has mounted on the client
     setEventStyle(
       day && eventOfTheDay !== undefined
-        ? { backgroundColor: "rgb(207, 74, 185)", color: "white" }
+        ? { backgroundColor: eventOfTheDay.eventColor, color: "white" }
         : {}
     );
   }, [day, eventOfTheDay]);
