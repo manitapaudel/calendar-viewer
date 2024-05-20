@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getLocalStorage, getReadableDate } from "@/app/utils";
 import Modal from "@/app/components/modal";
 import EventDrawer from "@/app/components/event-drawer";
-import EventCard from "../event-card";
 import "./styles.scss";
 
 const Day = ({ today, day, currentMonth, currentYear }) => {

@@ -1,6 +1,6 @@
 import { CloseIcon } from "@/app/components/icons";
+import EventCard from "@/app/components/event-card";
 import "./styles.scss";
-import EventCard from "../event-card";
 
 const EventDrawer = ({ event, setShowDrawer }) => {
   return (
