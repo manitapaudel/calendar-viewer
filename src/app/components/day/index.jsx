@@ -44,6 +44,13 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     setEvents(updatedEvents);
   };
 
+  const deleteEvent = (date) => {
+    const filteredEvents = events.filter((item) => item.createdDate !== date);
+    setLocalStorage("events", filteredEvents);
+    setEvents(filteredEvents);
+    setShowModalOrEvent(false);
+  };
+
   return (
     <>
       <span
@@ -60,6 +67,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
           <EventDrawer
             event={eventOfTheDay}
             setShowDrawer={setShowModalOrEvent}
+            deleteEvent={deleteEvent}
           />
         ) : (
           <Modal

@@ -2,10 +2,9 @@ import Image from "next/image";
 
 import Avatar from "@/app/components/avatar";
 import { EditIcon, DeleteIcon } from "@/app/components/icons";
-import { deleteEvent } from "@/app/utils";
 import "./styles.scss";
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, deleteEvent }) => {
   return (
     <div className="event-container">
       <div className="image-container">
