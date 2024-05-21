@@ -1,0 +1,28 @@
+@mixin buttonBasics {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+@mixin overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(83, 83, 77, 0.2);
+  height: 100vh;
+  width: 100vw;
+}
+
+@mixin closeButton {
+  @include buttonBasics();
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+@mixin closeIcon {
+  height: 30px;
+  width: 30px;
+  color: #000000;
+}

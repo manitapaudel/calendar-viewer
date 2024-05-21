@@ -1,0 +1,20 @@
+@use "../../utils/commons";
+
+.drawer-overlay {
+  @include commons.overlay();
+  .drawer-container {
+    position: relative;
+    background-color: white;
+    width: 40vw;
+    height: 100vh;
+    padding: 100px 20px;
+
+    .close-modal {
+      @include commons.closeButton();
+
+      .close-icon {
+        @include commons.closeIcon();
+      }
+    }
+  }
+}

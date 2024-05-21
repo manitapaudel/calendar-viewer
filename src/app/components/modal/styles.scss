@@ -1,12 +1,7 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(83, 83, 77, 0.2);
-  //   opacity: 0.2;
-  height: 100vh;
-  width: 100vw;
+@use "../../utils/commons";
 
+.modal-overlay {
+  @include commons.overlay();
   .modal-form-container {
     position: relative;
     width: 50%;
@@ -57,17 +52,10 @@
       }
     }
     .close-modal {
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      padding: 0;
-      border: none;
-      background-color: transparent;
+      @include commons.closeButton();
+
       .close-icon {
-        height: 30px;
-        width: 30px;
-        color: #000000;
+        @include commons.closeIcon();
       }
     }
   }
