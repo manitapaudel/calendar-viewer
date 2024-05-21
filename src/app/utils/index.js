@@ -50,12 +50,3 @@ export const getRandomColor = () => {
   const b = Math.floor(Math.random() * 256); // Blue value between 0 and 255
   return `rgb(${r}, ${g}, ${b})`;
 };
-
-// For now,we only have one event per day, so we can take date as the unique id
-const events = getLocalStorage("events", []);
-
-export const deleteEvent = (date) => {
-  const filteredEvents = events.filter((item) => item.createdDate !== date);
-  setLocalStorage("events", filteredEvents);
-  console.log({ filteredEvents });
-};
