@@ -26,7 +26,7 @@ export const getToday = (date, currentYear, currentMonth) => {
 
 // Creates an array, so that the first day of the month starts from the correct day of the week
 export const getCalendarFormatDays = (firstDayOfTheMonth, daysInaMonth) => {
-  return Array(firstDayOfTheMonth)
+  return Array(firstDayOfTheMonth - 1)
     .fill("")
     .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
 };
