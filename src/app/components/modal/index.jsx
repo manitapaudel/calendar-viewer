@@ -10,7 +10,7 @@ import {
 import { CloseIcon } from "@/app/components/icons";
 import "./styles.scss";
 
-const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
+const Modal = ({ setShowModal, day, currentMonth, currentYear, addEvent }) => {
   const [event, setEvent] = useState(initialState);
   const [errors, setErrors] = useState(initialState);
   const readableDate = getReadableDate(day, currentMonth, currentYear);
@@ -34,14 +34,12 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear }) => {
       setErrors({ ...errors, tag: "Please enter a tag*" });
     else {
       const randomColor = getRandomColor();
-      setLocalStorage("events", [
-        ...events,
-        { ...event, createdDate: readableDate, eventColor: randomColor },
-      ]);
-      console.log({
+      addEvent({
         ...event,
         createdDate: readableDate,
+        eventColor: randomColor,
       });
+
       setShowModal(false);
     }
   };

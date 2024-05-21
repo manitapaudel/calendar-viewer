@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getLocalStorage, getReadableDate } from "@/app/utils";
+import { getLocalStorage, getReadableDate, setLocalStorage } from "@/app/utils";
 import Modal from "@/app/components/modal";
 import EventDrawer from "@/app/components/event-drawer";
 import "./styles.scss";
@@ -8,27 +8,40 @@ import "./styles.scss";
 const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModalOrEvent, setShowModalOrEvent] = useState(false);
   const [eventStyle, setEventStyle] = useState(null);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events from local storage when the component mounts
+    setEvents(getLocalStorage("events", []));
+  }, []);
 
   const readableDate = getReadableDate(day, currentMonth, currentYear);
-  const events = getLocalStorage("events", []);
-
   const eventOfTheDay = events?.find(
     (event) => event.createdDate === readableDate
   );
+  const hasEventInTheDay = eventOfTheDay !== undefined ? true : false;
 
   useEffect(() => {
-    // Set the style after the component has mounted on the client
-    setEventStyle(
-      day && eventOfTheDay !== undefined
-        ? { backgroundColor: eventOfTheDay.eventColor, color: "white" }
-        : {}
-    );
-  }, [day]);
+    if (day && hasEventInTheDay) {
+      setEventStyle({
+        backgroundColor: eventOfTheDay.eventColor,
+        color: "white",
+      });
+    } else {
+      setEventStyle({});
+    }
+  }, [day, hasEventInTheDay]);
 
   const handleShowModal = () => {
     if (day !== "") {
       setShowModalOrEvent(true);
     }
+  };
+
+  const addEvent = (newEvent) => {
+    const updatedEvents = [...events, newEvent];
+    setLocalStorage("events", updatedEvents);
+    setEvents(updatedEvents);
   };
 
   return (
@@ -43,7 +56,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
         <span className="text">{day}</span>
       </span>
       {showModalOrEvent &&
-        (eventOfTheDay !== undefined ? (
+        (hasEventInTheDay ? (
           <EventDrawer
             event={eventOfTheDay}
             setShowDrawer={setShowModalOrEvent}
@@ -54,6 +67,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
             day={day}
             currentMonth={currentMonth}
             currentYear={currentYear}
+            addEvent={addEvent}
           />
         ))}
     </>
