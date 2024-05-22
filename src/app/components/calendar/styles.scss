@@ -32,7 +32,8 @@
   }
   .week-days {
     display: grid;
-    grid-template-columns: repeat(7, 200px);
+    grid-template-columns: repeat(7, 160px);
+    gap: 20px;
     text-align: center;
     margin-top: 2rem;
 
@@ -47,9 +48,9 @@
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 200px);
-    grid-template-rows: repeat(5, 100px);
-    gap: 5px;
+    grid-template-columns: repeat(7, 160px);
+    grid-template-rows: repeat(6, 80px);
+    gap: 20px;
     text-align: center;
     row-gap: 1rem;
     margin-top: 1.5rem;
