@@ -39,7 +39,10 @@
     .week-name {
       font-size: 18px;
       font-weight: 700;
-      // font-family: ;
+    }
+
+    .weekends {
+      color: #cf352e;
     }
   }
   .days {
@@ -51,5 +54,10 @@
     row-gap: 1rem;
     margin-top: 1.5rem;
     color: #171d35;
+
+    :nth-child(7n-1),
+    :nth-child(7n) {
+      color: #cf352e;
+    }
   }
 }

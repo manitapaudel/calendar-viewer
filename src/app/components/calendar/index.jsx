@@ -62,7 +62,12 @@ const Calendar = () => {
       </div>
       <div className="week-days">
         {daysNames.map((day) => (
-          <span className="week-name" key={day}>
+          <span
+            className={`week-name ${
+              day === "Sat" || day === "Sun" ? "weekends" : ""
+            }`}
+            key={day}
+          >
             {day}
           </span>
         ))}
