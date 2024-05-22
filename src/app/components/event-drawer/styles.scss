@@ -8,6 +8,7 @@
     width: 40vw;
     height: 100vh;
     padding: 100px 20px;
+    color: #000000;
 
     .close-modal {
       @include commons.closeButton();
