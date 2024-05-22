@@ -12,6 +12,7 @@
   background-color: rgba(83, 83, 77, 0.2);
   height: 100vh;
   width: 100vw;
+  z-index: 5;
 }
 
 @mixin closeButton {
