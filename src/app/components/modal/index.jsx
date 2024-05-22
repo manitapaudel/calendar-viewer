@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import { formInputs, initialState } from "@/app/utils/constants";
-import { getLocalStorage, getRandomColor } from "@/app/utils";
+import { getRandomColor } from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
 import "./styles.scss";
 
@@ -17,17 +17,13 @@ const Modal = ({
 }) => {
   const [event, setEvent] = useState(initialFormState);
   const [errors, setErrors] = useState(initialState);
-  const events = getLocalStorage("events", []);
 
-  console.log(events);
   const handleChange = (e) => {
     setEvent({
       ...event,
       [e.target.name]: e.target.value,
     });
   };
-
-  console.log(event);
 
   const handleSubmit = (e) => {
     e.preventDefault();

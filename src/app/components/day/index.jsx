@@ -12,8 +12,6 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   const [eventTextColor, setEventTextColor] = useState(null);
   const [events, setEvents] = useState([]);
 
-  console.log(showModalOrEvent);
-
   useEffect(() => {
     // Fetch events from local storage when the component mounts
     setEvents(getLocalStorage("events", []));
