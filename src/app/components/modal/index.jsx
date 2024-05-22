@@ -1,22 +1,23 @@
+"use client";
+
 import { useState } from "react";
 
 import { formInputs, initialState } from "@/app/utils/constants";
-import {
-  getLocalStorage,
-  getRandomColor,
-  getReadableDate,
-  setLocalStorage,
-} from "@/app/utils";
+import { getRandomColor } from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
 import "./styles.scss";
 
-const Modal = ({ setShowModal, day, currentMonth, currentYear, addEvent }) => {
-  const [event, setEvent] = useState(initialState);
+const Modal = ({
+  setShowModal,
+  readableDate,
+  addEvent,
+  editEvent,
+  initialFormState,
+  editForm = false,
+}) => {
+  const [event, setEvent] = useState(initialFormState);
   const [errors, setErrors] = useState(initialState);
-  const readableDate = getReadableDate(day, currentMonth, currentYear);
-  const events = getLocalStorage("events", []);
 
-  console.log(events);
   const handleChange = (e) => {
     setEvent({
       ...event,
@@ -34,11 +35,19 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear, addEvent }) => {
       setErrors({ ...errors, tag: "Please enter a tag*" });
     else {
       const randomColor = getRandomColor();
-      addEvent({
-        ...event,
-        createdDate: readableDate,
-        eventColor: randomColor,
-      });
+      if (editForm) {
+        editEvent(readableDate, {
+          ...event,
+          createdDate: readableDate,
+          eventColor: randomColor,
+        });
+      } else {
+        addEvent({
+          ...event,
+          createdDate: readableDate,
+          eventColor: randomColor,
+        });
+      }
 
       setShowModal(false);
     }
@@ -68,7 +77,7 @@ const Modal = ({ setShowModal, day, currentMonth, currentYear, addEvent }) => {
             </span>
           ))}
           <button className="submit-btn" onClick={handleSubmit}>
-            Add event
+            {editForm ? "Save Changes" : "Add Event"}
           </button>
         </form>
         <button className="close-modal" onClick={() => setShowModal(false)}>

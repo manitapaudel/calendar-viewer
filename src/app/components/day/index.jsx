@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { initialState } from "@/app/utils/constants";
 import { getLocalStorage, getReadableDate, setLocalStorage } from "@/app/utils";
 import Modal from "@/app/components/modal";
 import EventDrawer from "@/app/components/event-drawer";
@@ -56,6 +57,13 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     setShowModalOrEvent(false);
   };
 
+  const editEvent = (date, newlyUpdatedEvent) => {
+    const filteredEvents = events.filter((item) => item.createdDate !== date);
+    const updatedEvents = [...filteredEvents, newlyUpdatedEvent];
+    setEvents(updatedEvents);
+    setLocalStorage("events", updatedEvents);
+  };
+
   return (
     <>
       <span
@@ -76,14 +84,14 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
             event={eventOfTheDay}
             setShowDrawer={setShowModalOrEvent}
             deleteEvent={deleteEvent}
+            editEvent={editEvent}
           />
         ) : (
           <Modal
             setShowModal={setShowModalOrEvent}
-            day={day}
-            currentMonth={currentMonth}
-            currentYear={currentYear}
+            readableDate={readableDate}
             addEvent={addEvent}
+            initialFormState={initialState}
           />
         ))}
     </>
