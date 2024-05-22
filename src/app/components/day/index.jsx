@@ -8,6 +8,7 @@ import "./styles.scss";
 const Day = ({ today, day, currentMonth, currentYear }) => {
   const [showModalOrEvent, setShowModalOrEvent] = useState(false);
   const [eventStyle, setEventStyle] = useState(null);
+  const [eventTextColor, setEventTextColor] = useState(null);
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -24,11 +25,15 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   useEffect(() => {
     if (day && hasEventInTheDay) {
       setEventStyle({
-        backgroundColor: eventOfTheDay.eventColor,
-        color: "white",
+        borderLeft: `10px solid ${eventOfTheDay.eventColor}`,
+        // color: "white",
+      });
+      setEventTextColor({
+        color: eventOfTheDay.eventColor,
       });
     } else {
       setEventStyle({});
+      setEventTextColor({});
     }
   }, [day, hasEventInTheDay]);
 
@@ -61,6 +66,9 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
         onClick={handleShowModal}
       >
         <span className="text">{day}</span>
+        <span className="event-name" style={eventTextColor}>
+          {eventOfTheDay?.name}
+        </span>
       </span>
       {showModalOrEvent &&
         (hasEventInTheDay ? (
