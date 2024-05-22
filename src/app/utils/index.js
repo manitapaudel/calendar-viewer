@@ -26,9 +26,19 @@ export const getToday = (date, currentYear, currentMonth) => {
 
 // Creates an array, so that the first day of the month starts from the correct day of the week
 export const getCalendarFormatDays = (firstDayOfTheMonth, daysInaMonth) => {
-  return Array(firstDayOfTheMonth === 0 ? 6 : firstDayOfTheMonth - 1)
+  const totalDays = Array(firstDayOfTheMonth === 0 ? 6 : firstDayOfTheMonth - 1)
     .fill("")
     .concat(Array.from({ length: daysInaMonth }, (_, i) => i + 1));
+
+  if (totalDays.length > 35) {
+    const extraDays = totalDays.length - 35;
+
+    const newArray = totalDays
+      .slice(35, totalDays.length) // Take out the extra days from the end of the array
+      .concat(totalDays.slice(extraDays, 35)); // Remove the extraDays number of ""s from the array eg. if there are 37 days including the ""s, there are 2 extra days, so for those 2 extra days, we remove 2 ""s
+    return newArray;
+  }
+  return totalDays;
 };
 
 export const getLocalStorage = (key, initialValue) => {

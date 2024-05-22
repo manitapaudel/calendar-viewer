@@ -49,7 +49,7 @@
   .days {
     display: grid;
     grid-template-columns: repeat(7, 160px);
-    grid-template-rows: repeat(6, 80px);
+    grid-template-rows: repeat(5, 80px);
     gap: 20px;
     text-align: center;
     row-gap: 1rem;
