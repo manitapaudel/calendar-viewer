@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 
 import { initialState } from "@/app/utils/constants";
+import { ToastContext } from "@/app/utils/context";
 import { getLocalStorage, getReadableDate, setLocalStorage } from "@/app/utils";
 import Modal from "@/app/components/modal";
 import EventDrawer from "@/app/components/event-drawer";
@@ -11,6 +12,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   const [eventStyle, setEventStyle] = useState(null);
   const [eventTextColor, setEventTextColor] = useState(null);
   const [events, setEvents] = useState([]);
+  const { showToast, handleShowToast, setMessage } = useContext(ToastContext);
 
   useEffect(() => {
     // Fetch events from local storage when the component mounts
@@ -50,6 +52,8 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     const updatedEvents = [...events, newEvent];
     setLocalStorage("events", updatedEvents);
     setEvents(updatedEvents);
+    setMessage("Event added successfully!");
+    handleShowToast();
   };
 
   const deleteEvent = (date) => {
@@ -57,6 +61,8 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     setLocalStorage("events", filteredEvents);
     setEvents(filteredEvents);
     setShowModalOrEvent(false);
+    setMessage("Event deleted successfully!");
+    handleShowToast();
   };
 
   const editEvent = (date, newlyUpdatedEvent) => {
@@ -64,6 +70,8 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     const updatedEvents = [...filteredEvents, newlyUpdatedEvent];
     setEvents(updatedEvents);
     setLocalStorage("events", updatedEvents);
+    setMessage("Event updated successfully!");
+    handleShowToast();
   };
 
   return (

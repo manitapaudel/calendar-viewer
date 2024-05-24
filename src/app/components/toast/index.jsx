@@ -3,15 +3,20 @@
 import { CheckIcon, CloseIcon } from "../icons";
 import "./styles.scss";
 
-const Toast = ({ message, type }) => {
-  const handleClose = () => {};
+const Toast = ({ message, type, extraClass, setShowToast }) => {
+  const handleClose = () => {
+    setShowToast(false);
+  };
+
   return (
-    <div className={`toast-container toast-container--${type}`}>
+    <div
+      className={`toast-container toast-container--${type} toast-container--${extraClass}`}
+    >
       <div className="message">
         <CheckIcon className="check-icon" />
         {message}
       </div>
-      <button className="close-toast" onclick={handleClose}>
+      <button className="close-toast" onClick={handleClose}>
         <CloseIcon className="close-icon" />
       </button>
     </div>
