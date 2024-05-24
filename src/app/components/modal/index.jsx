@@ -2,11 +2,11 @@
 
 import { useRef, useState } from "react";
 
+import useOutsideClickHandler from "@/app/hooks/useOutsideClickHandler";
 import { formInputs, initialState } from "@/app/utils/constants";
 import { getRandomColor } from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
 import "./styles.scss";
-import useOutsideClickHandler from "@/app/hooks/useOutsideClickHandler";
 
 const Modal = ({
   setShowModal,
