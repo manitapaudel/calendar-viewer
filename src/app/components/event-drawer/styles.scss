@@ -10,6 +10,10 @@
     padding: 100px 20px;
     color: #000000;
 
+    h2 {
+      margin-bottom: 50px;
+    }
+
     .close-modal {
       @include commons.closeButton();
 

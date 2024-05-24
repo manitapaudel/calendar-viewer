@@ -6,6 +6,7 @@ const EventDrawer = ({ event, setShowDrawer, deleteEvent, editEvent }) => {
   return (
     <div className="drawer-overlay">
       <div className="drawer-container">
+        <h2>Your event for {event.createdDate}</h2>
         <EventCard
           event={event}
           deleteEvent={deleteEvent}

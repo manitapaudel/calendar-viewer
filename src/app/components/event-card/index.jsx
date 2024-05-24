@@ -19,10 +19,13 @@ const EventCard = ({ event, deleteEvent, editEvent }) => {
 
   return (
     <>
-      <div className="event-container">
-        <div className="image-container">
+      <div
+        className="event-container"
+        style={{ borderLeft: `10px solid ${event.eventColor}` }}
+      >
+        {/* <div className="image-container">
           <Image src="/images/pattern-i.jpg" alt="A marble pattern" fill />
-        </div>
+        </div> */}
         <div className="event-details">
           <p className="title">{event.name}</p>
           <p className="description">{event.description}</p>
