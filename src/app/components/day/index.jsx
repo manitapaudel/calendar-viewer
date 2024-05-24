@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { initialState } from "@/app/utils/constants";
 import { getLocalStorage, getReadableDate, setLocalStorage } from "@/app/utils";
@@ -18,9 +18,11 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   }, []);
 
   const readableDate = getReadableDate(day, currentMonth, currentYear);
-  const eventOfTheDay = events?.find(
-    (event) => event.createdDate === readableDate
+  const eventOfTheDay = useMemo(
+    () => events?.find((event) => event.createdDate === readableDate),
+    [events, readableDate]
   );
+
   const hasEventInTheDay = eventOfTheDay !== undefined ? true : false;
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
       setEventStyle({});
       setEventTextColor({});
     }
-  }, [day, hasEventInTheDay]);
+  }, [day, eventOfTheDay?.eventColor, hasEventInTheDay]);
 
   const handleShowModal = () => {
     if (day !== "") {
