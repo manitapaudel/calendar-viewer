@@ -1,13 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
+import { getLocalStorage, setLocalStorage } from "./utils";
 import "./globals.css";
 
 const Home = () => {
   const [name, setName] = useState("");
+
+  const userInfo = getLocalStorage("userInfo", null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (userInfo !== null) {
+      router.push("/my-calendar");
+    }
+  });
+
   const handleChange = (e) => {
     setName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLocalStorage("userInfo", {
+      name,
+    });
+    router.push("/my-calendar");
   };
 
   return (
@@ -31,7 +51,7 @@ const Home = () => {
           onChange={handleChange}
           required
         />
-        <button>Let&apos;s Go!</button>
+        <button onClick={handleSubmit}>Let&apos;s Go!</button>
       </form>
     </div>
   );
