@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext, useEffect, useMemo, useState } from "react";
 
 import { initialState } from "@/app/utils/constants";

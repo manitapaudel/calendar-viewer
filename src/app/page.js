@@ -16,7 +16,7 @@ const Home = () => {
     if (userInfo !== null) {
       router.push("/my-calendar");
     }
-  });
+  }, []);
 
   const handleChange = (e) => {
     setName(e.target.value);
