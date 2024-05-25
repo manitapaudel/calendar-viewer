@@ -1,0 +1,54 @@
+@use "../../utils/commons";
+
+.toast-container {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  right: 20px;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #141414;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: 500;
+  transform: translateX(110%);
+  transition: all 0.1s ease-in-out;
+
+  &--success {
+    border-left: 8px solid #1c9d27;
+    background-color: rgb(255, 255, 255);
+  }
+  &--warning {
+    border-left: 8px solid rgb(181, 181, 84);
+  }
+
+  &--show {
+    transform: translateX(0);
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .check-icon {
+      height: 30px;
+      width: 30px;
+      margin-right: 6px;
+      color: #1c9d27;
+    }
+  }
+
+  .close-toast {
+    @include commons.buttonBasics();
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    .close-icon {
+      height: 20px;
+      width: 20px;
+      color: #141414;
+    }
+  }
+}

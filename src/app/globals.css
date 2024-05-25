@@ -1,0 +1,51 @@
+:root {
+  --primary-color: #ffdf00;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.onboarding {
+  width: 50%;
+  margin: 100px auto;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 50px;
+}
+
+h1 span,
+h2 span {
+  color: var(--primary-color);
+}
+
+h2 {
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+form input,
+form button {
+  width: 50%;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+form input {
+  padding: 0 10px;
+}
+
+form button {
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}

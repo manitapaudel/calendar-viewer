@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
+import useOutsideClickHandler from "@/app/hooks/useOutsideClickHandler";
 import { formInputs, initialState } from "@/app/utils/constants";
 import { getRandomColor } from "@/app/utils";
 import { CloseIcon } from "@/app/components/icons";
@@ -17,6 +18,9 @@ const Modal = ({
 }) => {
   const [event, setEvent] = useState(initialFormState);
   const [errors, setErrors] = useState(initialState);
+  const modalRef = useRef(null);
+
+  useOutsideClickHandler(modalRef, () => setShowModal(false));
 
   const handleChange = (e) => {
     setEvent({
@@ -55,7 +59,7 @@ const Modal = ({
 
   return (
     <div className="modal-overlay">
-      <div className="modal-form-container">
+      <div className="modal-form-container" ref={modalRef}>
         <h2>Create an Event for {readableDate}</h2>
         <p className="greetings">
           Add an event that you would like to remember.
