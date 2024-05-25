@@ -36,8 +36,9 @@ const Home = () => {
         Hey there! <span>Welcome.</span>
       </h1>
       <h2>
-        Let&apos;s start with your name, to get a more personalized feel to your
-        calendar
+        Let&apos;s start with your name, to get a <span>more personalized</span>{" "}
+        feel to your&nbsp;
+        <span>calendar</span>.
       </h2>
       <form>
         <label>
