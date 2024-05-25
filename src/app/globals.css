@@ -1,3 +1,40 @@
 body {
   overflow-x: hidden;
 }
+
+.onboarding {
+  width: 50%;
+  margin: 100px auto;
+  border: 2px solid #ffdf00;
+  border-radius: 6px;
+  padding: 50px;
+}
+
+h1 span {
+  color: #ffdf00;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input,
+form button {
+  width: 50%;
+  height: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+form input {
+  padding: 0 10px;
+}
+
+form button {
+  background-color: #ffdf00;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
