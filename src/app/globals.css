@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #ffdf00;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -5,13 +9,13 @@ body {
 .onboarding {
   width: 50%;
   margin: 100px auto;
-  border: 2px solid #ffdf00;
+  border: 2px solid var(--primary-color);
   border-radius: 6px;
   padding: 50px;
 }
 
 h1 span {
-  color: #ffdf00;
+  color: var(--primary-color);
 }
 
 form {
@@ -33,7 +37,7 @@ form input {
 }
 
 form button {
-  background-color: #ffdf00;
+  background-color: var(--primary-color);
   border: none;
   cursor: pointer;
   margin-top: 20px;

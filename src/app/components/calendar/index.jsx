@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 
 import { daysNames, monthNames } from "@/app/utils/constants";
-import { getCalendarFormatDays, getDaysInMonth, getToday } from "@/app/utils";
+import {
+  getCalendarFormatDays,
+  getDaysInMonth,
+  getLocalStorage,
+  getToday,
+} from "@/app/utils";
 import { NextIcon, PreviousIcon } from "@/app/components/icons";
 import Day from "@/app/components/day";
 import "./styles.scss";
@@ -15,6 +20,7 @@ const Calendar = () => {
   const [daysInaMonth, setDaysInaMonth] = useState(
     getDaysInMonth(currentYear, currentMonth)
   );
+  const userInfo = getLocalStorage("userInfo");
 
   // To update the number of days, whenever the month or/and the year changes
   useEffect(() => {
@@ -51,6 +57,7 @@ const Calendar = () => {
         <p className="month">
           {monthNames[currentMonth]} {currentYear}
         </p>
+        <h1>{userInfo.name}&apos;s Calendar</h1>
         <div className="buttons">
           <button className="prev" onClick={handlePrevMonth}>
             <PreviousIcon className="icon" />
