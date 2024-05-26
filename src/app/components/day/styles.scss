@@ -24,7 +24,7 @@
 .today {
   .text {
     margin: 0 -0.4em;
-    padding: 0.1em 0.4em;
+    padding: 0.1em 0.2em;
     border-radius: 0.8em 0.3em;
     background: transparent;
     background-image: linear-gradient(
@@ -48,6 +48,9 @@
 
 .border {
   border: 1px solid commons.$primary-color;
-  border-radius: 6px;
   cursor: pointer;
+
+  @media (min-width: 530px) {
+    border-radius: 6px;
+  }
 }

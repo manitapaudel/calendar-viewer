@@ -1,5 +1,12 @@
 @use "../../utils/commons";
 
+@mixin weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  text-align: center;
+  margin-top: 2rem;
+}
+
 h1 {
   width: fit-content;
   text-align: center;
@@ -13,7 +20,7 @@ h1 {
 }
 
 .calendar-container {
-  max-width: fit-content;
+  max-width: 95vw;
   height: auto;
   margin: 20px auto;
   border: 2px solid #141414;
@@ -43,28 +50,24 @@ h1 {
     }
   }
   .week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 50px);
-    gap: 20px;
-    text-align: center;
-    margin-top: 2rem;
+    display: none;
+  }
+  .week-days-sm {
+    @include weekDays();
+  }
+  .week-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
 
-    .week-name {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .weekends {
-      color: #cf352e;
-    }
+  .weekends {
+    color: #cf352e;
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 50px);
-    grid-template-rows: repeat(5, 50px);
-    gap: 20px;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(5, 100px);
     text-align: center;
-    row-gap: 1rem;
     margin-top: 1.5rem;
     color: #171d35;
 
@@ -76,21 +79,21 @@ h1 {
 
   @media (min-width: 530px) {
     .week-days {
-      grid-template-columns: repeat(7, 50px);
+      @include weekDays();
+      gap: 10px;
+    }
+    .week-days-sm {
+      display: none;
     }
     .days {
-      grid-template-rows: repeat(5, 50px);
-      grid-template-columns: repeat(7, 50px);
+      gap: 10px;
     }
   }
 
   @media (min-width: 1400px) {
-    .week-days {
-      grid-template-columns: repeat(7, 160px);
-    }
+    .week-days,
     .days {
-      grid-template-columns: repeat(7, 160px);
-      grid-template-rows: repeat(5, 80px);
+      gap: 20px;
     }
   }
 }

@@ -80,6 +80,18 @@ const Calendar = () => {
             </span>
           ))}
         </div>
+        <div className="week-days-sm">
+          {daysNames.map((day) => (
+            <span
+              className={`week-name ${
+                day === "Sat" || day === "Sun" ? "weekends" : ""
+              }`}
+              key={day}
+            >
+              {day.charAt(0)}
+            </span>
+          ))}
+        </div>
         <div className="days">
           {calendarFormatDays.map((day, index) => (
             <Day
