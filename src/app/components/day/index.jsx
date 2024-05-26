@@ -33,7 +33,6 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
     if (day && hasEventInTheDay) {
       setEventStyle({
         borderLeft: `10px solid ${eventOfTheDay.eventColor}`,
-        // color: "white",
       });
       setEventTextColor({
         color: eventOfTheDay.eventColor,
