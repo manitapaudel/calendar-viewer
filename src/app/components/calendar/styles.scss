@@ -1,9 +1,9 @@
 @use "../../utils/commons";
 
 .calendar-container {
-  width: fit-content;
+  max-width: fit-content;
   height: auto;
-  margin: auto;
+  margin: 50px auto;
   border: 2px solid #141414;
   border-radius: 6px;
   padding: 20px;
@@ -40,7 +40,7 @@
   }
   .week-days {
     display: grid;
-    grid-template-columns: repeat(7, 160px);
+    grid-template-columns: repeat(7, 50px);
     gap: 20px;
     text-align: center;
     margin-top: 2rem;
@@ -56,8 +56,8 @@
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 160px);
-    grid-template-rows: repeat(5, 80px);
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(5, 50px);
     gap: 20px;
     text-align: center;
     row-gap: 1rem;
@@ -67,6 +67,26 @@
     :nth-child(7n-1),
     :nth-child(7n) {
       color: #cf352e;
+    }
+  }
+
+  @media (min-width: 530px) {
+    .week-days {
+      grid-template-columns: repeat(7, 50px);
+    }
+    .days {
+      grid-template-rows: repeat(5, 50px);
+      grid-template-columns: repeat(7, 50px);
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .week-days {
+      grid-template-columns: repeat(7, 160px);
+    }
+    .days {
+      grid-template-columns: repeat(7, 160px);
+      grid-template-rows: repeat(5, 80px);
     }
   }
 }

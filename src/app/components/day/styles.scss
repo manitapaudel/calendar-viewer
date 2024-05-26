@@ -1,9 +1,10 @@
 @use "../../utils/commons";
+
 .day {
   position: relative;
   align-content: center;
   .text {
-    padding: 16px 20px;
+    padding: 8px 10px;
   }
 
   .event-name {
@@ -12,13 +13,18 @@
     left: 5px;
     font-size: 12px;
   }
+
+  @media (min-width: 1400px) {
+    .day {
+      padding: 16px 20px;
+    }
+  }
 }
 
 .today {
   .text {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
-    padding: 0.4em 1.2em;
     border-radius: 0.8em 0.3em;
     background: transparent;
     background-image: linear-gradient(
@@ -29,6 +35,14 @@
     );
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+
+    @media (min-width: 530px) {
+      padding: 0.1em 0.4em;
+    }
+
+    @media (min-width: 1400px) {
+      padding: 0.4em 1.2em;
+    }
   }
 }
 
