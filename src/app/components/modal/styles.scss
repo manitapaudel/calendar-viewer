@@ -4,17 +4,16 @@
   @include commons.overlay();
   .modal-form-container {
     position: relative;
-    width: 50%;
-    height: auto;
-    margin: 100px auto;
+    width: 100%;
+    height: 100vh;
     background-color: white;
-    border-radius: 8px;
-    padding: 40px 20px;
+    padding: 100px 20px;
     color: #000000;
+    box-sizing: border-box;
 
     .event-form {
       display: flex;
-      width: 60%;
+      width: 90%;
       flex-direction: column;
       gap: 20px;
       margin: auto;
@@ -30,6 +29,7 @@
           border-radius: 6px;
           font-size: 16px;
           padding: 0 20px;
+          box-sizing: border-box;
         }
         .error-message {
           font-size: 14px;
@@ -46,7 +46,7 @@
         background-color: commons.$primary-color;
         border: none;
         border-radius: 6px;
-        width: 65%;
+        width: 100%;
         margin: 40px auto;
         padding: 10px 16px;
         cursor: pointer;
@@ -58,6 +58,29 @@
       .close-icon {
         @include commons.closeIcon();
       }
+    }
+
+    @media (min-width: 768px) {
+      width: 80%;
+      margin: 100px auto;
+      border-radius: 8px;
+      padding: 40px 20px;
+
+      .event-form {
+        width: 80%;
+      }
+    }
+
+    @media (min-width: 992px) {
+      width: 70%;
+
+      .event-form {
+        width: 70%;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      width: 50%;
     }
   }
 }

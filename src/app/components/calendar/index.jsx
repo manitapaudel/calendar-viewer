@@ -52,45 +52,59 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar-container">
-      <div className="header">
-        <p className="month">
-          {monthNames[currentMonth]} {currentYear}
-        </p>
-        <h1>{userInfo.name}&apos;s Calendar</h1>
-        <div className="buttons">
-          <button className="prev" onClick={handlePrevMonth}>
-            <PreviousIcon className="icon" />
-          </button>
-          <button className="next" onClick={handleNextMonth}>
-            <NextIcon className="icon" />
-          </button>
+    <>
+      <h1>{userInfo.name}&apos;s Calendar</h1>
+      <div className="calendar-container">
+        <div className="header">
+          <p className="month">
+            {monthNames[currentMonth]} {currentYear}
+          </p>
+          <div className="buttons">
+            <button className="prev" onClick={handlePrevMonth}>
+              <PreviousIcon className="icon" />
+            </button>
+            <button className="next" onClick={handleNextMonth}>
+              <NextIcon className="icon" />
+            </button>
+          </div>
+        </div>
+        <div className="week-days">
+          {daysNames.map((day) => (
+            <span
+              className={`week-name ${
+                day === "Sat" || day === "Sun" ? "weekends" : ""
+              }`}
+              key={day}
+            >
+              {day}
+            </span>
+          ))}
+        </div>
+        <div className="week-days-sm">
+          {daysNames.map((day) => (
+            <span
+              className={`week-name ${
+                day === "Sat" || day === "Sun" ? "weekends" : ""
+              }`}
+              key={day}
+            >
+              {day.charAt(0)}
+            </span>
+          ))}
+        </div>
+        <div className="days">
+          {calendarFormatDays.map((day, index) => (
+            <Day
+              today={today}
+              day={day}
+              currentMonth={currentMonth}
+              currentYear={currentYear}
+              key={index}
+            />
+          ))}
         </div>
       </div>
-      <div className="week-days">
-        {daysNames.map((day) => (
-          <span
-            className={`week-name ${
-              day === "Sat" || day === "Sun" ? "weekends" : ""
-            }`}
-            key={day}
-          >
-            {day}
-          </span>
-        ))}
-      </div>
-      <div className="days">
-        {calendarFormatDays.map((day, index) => (
-          <Day
-            today={today}
-            day={day}
-            currentMonth={currentMonth}
-            currentYear={currentYear}
-            key={index}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 

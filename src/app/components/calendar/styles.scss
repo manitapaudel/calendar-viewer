@@ -1,9 +1,28 @@
 @use "../../utils/commons";
 
-.calendar-container {
+@mixin weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+h1 {
   width: fit-content;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  color: #141414;
+  margin: 50px auto;
+  padding: 8px 12px;
+  background-color: rgba(255, 223, 0, 0.5);
+  border-radius: 6px;
+}
+
+.calendar-container {
+  max-width: 95vw;
   height: auto;
-  margin: auto;
+  margin: 20px auto;
   border: 2px solid #141414;
   border-radius: 6px;
   padding: 20px;
@@ -14,14 +33,6 @@
     .month {
       font-weight: bold;
       font-size: 24px;
-    }
-    h1 {
-      font-weight: 500;
-      font-size: 24px;
-      color: #141414;
-      padding: 8px 12px;
-      background-color: rgba(255, 223, 0, 0.5);
-      border-radius: 6px;
     }
 
     .buttons {
@@ -39,34 +50,50 @@
     }
   }
   .week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 160px);
-    gap: 20px;
-    text-align: center;
-    margin-top: 2rem;
+    display: none;
+  }
+  .week-days-sm {
+    @include weekDays();
+  }
+  .week-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
 
-    .week-name {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .weekends {
-      color: #cf352e;
-    }
+  .weekends {
+    color: #cf352e;
   }
   .days {
     display: grid;
-    grid-template-columns: repeat(7, 160px);
-    grid-template-rows: repeat(5, 80px);
-    gap: 20px;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(5, 100px);
     text-align: center;
-    row-gap: 1rem;
     margin-top: 1.5rem;
     color: #171d35;
 
     :nth-child(7n-1),
     :nth-child(7n) {
       color: #cf352e;
+    }
+  }
+
+  @media (min-width: 530px) {
+    .week-days {
+      @include weekDays();
+      gap: 10px;
+    }
+    .week-days-sm {
+      display: none;
+    }
+    .days {
+      gap: 10px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .week-days,
+    .days {
+      gap: 20px;
     }
   }
 }

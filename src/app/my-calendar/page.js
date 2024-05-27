@@ -41,7 +41,7 @@ const MyCalendar = () => {
   }
 
   return (
-    <div>
+    <div className="my-calendar-page">
       <Toast
         message={message}
         type="success"
