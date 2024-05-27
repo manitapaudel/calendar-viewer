@@ -5,10 +5,11 @@
   .drawer-container {
     position: relative;
     background-color: white;
-    width: 40vw;
+    width: 100vw;
     height: 100vh;
-    padding: 50px 20px;
+    padding: 100px 20px;
     color: #000000;
+    box-sizing: border-box;
 
     h2 {
       margin-bottom: 50px;
@@ -20,6 +21,20 @@
       .close-icon {
         @include commons.closeIcon();
       }
+    }
+
+    @media (min-width: 576px) {
+      width: 75vw;
+      padding: 50px 20px;
+    }
+    @media (min-width: 768px) {
+      width: 60vw;
+    }
+    @media (min-width: 992px) {
+      width: 50vw;
+    }
+    @media (min-width: 1400px) {
+      width: 40vw;
     }
   }
 }

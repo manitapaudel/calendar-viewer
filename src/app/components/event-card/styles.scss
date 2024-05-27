@@ -1,31 +1,16 @@
 @use "../../utils/commons";
 
-.event-container {
-  display: flex;
-  min-height: 200px;
+.event-details {
+  text-align: left;
   border: 2px solid commons.$primary-color;
   border-radius: 8px;
   background-color: #ffffff;
-
-  .image-container {
-    position: relative;
-    width: 30%;
-    min-height: 200px;
-
-    img {
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
-    }
-  }
-
-  .event-details {
-    text-align: left;
-    padding: 20px;
-    flex: 1;
-    .title {
-      font-size: 18px;
-      font-weight: 700;
-    }
+  padding: 10px 20px;
+  flex: 1;
+  box-sizing: border-box;
+  .title {
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .user-info {
@@ -69,5 +54,11 @@
         }
       }
     }
+  }
+
+  @media (min-width: 576px) {
+    width: 100%;
+    // padding: 50px 20px;
+    // min-height: 200px;
   }
 }

@@ -21,34 +21,32 @@ const EventCard = ({ event, deleteEvent, editEvent }) => {
   return (
     <>
       <div
-        className="event-container"
+        className="event-details"
         style={{ borderLeft: `10px solid ${event.eventColor}` }}
       >
-        <div className="event-details">
-          <p className="title">{event.name}</p>
-          <p className="description">{event.description}</p>
-          <div className="user-info">
-            <Avatar initial={userInfo.name.charAt(0)} />
-            <div className="name-creation">
-              <p className="name">{userInfo.name}</p>
-              <p className="created-at">{event.createdDate}</p>
-            </div>
-            <div className="actions">
-              <button
-                className="edit-btn"
-                title="Edit event"
-                onClick={() => setShowEditModal(true)}
-              >
-                <EditIcon className="edit-icon" />
-              </button>
-              <button
-                className="delete-btn"
-                onClick={() => deleteEvent(event.createdDate)}
-                title="Delete event"
-              >
-                <DeleteIcon className="delete-icon" />
-              </button>
-            </div>
+        <p className="title">{event.name}</p>
+        <p className="description">{event.description}</p>
+        <div className="user-info">
+          <Avatar initial={userInfo.name.charAt(0)} />
+          <div className="name-creation">
+            <p className="name">{userInfo.name}</p>
+            <p className="created-at">{event.createdDate}</p>
+          </div>
+          <div className="actions">
+            <button
+              className="edit-btn"
+              title="Edit event"
+              onClick={() => setShowEditModal(true)}
+            >
+              <EditIcon className="edit-icon" />
+            </button>
+            <button
+              className="delete-btn"
+              onClick={() => deleteEvent(event.createdDate)}
+              title="Delete event"
+            >
+              <DeleteIcon className="delete-icon" />
+            </button>
           </div>
         </div>
       </div>
