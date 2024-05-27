@@ -32,7 +32,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
   useEffect(() => {
     if (day && hasEventInTheDay) {
       setEventStyle({
-        borderLeft: `10px solid ${eventOfTheDay.eventColor}`,
+        borderLeftColor: eventOfTheDay.eventColor,
       });
       setEventTextColor({
         color: eventOfTheDay.eventColor,
@@ -80,7 +80,7 @@ const Day = ({ today, day, currentMonth, currentYear }) => {
       <span
         className={`day ${today && today === day ? "today" : ""} ${
           day !== "" ? "border" : ""
-        }`}
+        } ${hasEventInTheDay ? "left-border" : ""}`}
         style={eventStyle}
         onClick={handleShowModal}
       >
