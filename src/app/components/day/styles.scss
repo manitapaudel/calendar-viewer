@@ -29,6 +29,8 @@
 
   @media (min-width: 1400px) {
     padding: 16px 20px;
+    font-size: 20px;
+
     .event-name {
       font-size: 14px;
     }
@@ -65,6 +67,7 @@
   cursor: pointer;
 
   @media (min-width: 530px) {
+    background-color: white;
     border: 1px solid commons.$primary-color;
     border-radius: 6px;
   }
