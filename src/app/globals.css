@@ -2,8 +2,9 @@
   --primary-color: #ffdf00;
 }
 
-body {
+.my-calendar-page {
   overflow-x: hidden;
+  position: relative;
 }
 
 .onboarding {

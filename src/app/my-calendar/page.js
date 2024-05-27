@@ -41,13 +41,13 @@ const MyCalendar = () => {
   }
 
   return (
-    <div>
-      {/* <Toast
+    <div className="my-calendar-page">
+      <Toast
         message={message}
         type="success"
         extraClass={`${showToast ? "show" : ""}`}
         setShowToast={setShowToast}
-      /> */}
+      />
       <ToastContext.Provider
         value={{ showToast, setShowToast, handleShowToast, setMessage }}
       >
