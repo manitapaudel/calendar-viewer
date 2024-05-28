@@ -15,7 +15,7 @@ Looks like a calendar, is a calendar, but it is not just a regular calendar. Hop
 - or even delete them, if you feel like it; it's really your choice you know
 - but, please be assured, your events are safe; they will be there when you close the calendar and open it next time. :)
 
-> *It is responsive on various screen sizes too.*
+> *I made it from scratch and it is responsive on various screen sizes too.*
 
 ## Resources
 
